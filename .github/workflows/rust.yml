@@ -1,0 +1,48 @@
+name: Run e2e tests
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches:
+      - main
+      - master
+      - "dependabot/**"
+  pull_request:
+    branches:
+      - main
+      - master
+      - "**"
+
+concurrency:
+  group: ${{ github.ref }}
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache rust
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
+
+      - name: Build
+        run: cargo build --release
+
+      - name: Zip artifact
+        working-directory: target/release
+        run: tar -cvf artifact.tar rust-book-guessing-game
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: procurement-artifact
+          path: target/release/artifact.tar
