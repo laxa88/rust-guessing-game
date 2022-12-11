@@ -2,6 +2,8 @@ name: Prebuild bom
 
 on:
   push:
+    branches-ignore:
+      - main
     paths:
       - src/bom/**
 
