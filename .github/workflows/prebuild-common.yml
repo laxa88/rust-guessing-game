@@ -1,0 +1,13 @@
+name: Prebuild common
+
+on:
+  push:
+    paths:
+      - src/common/**
+
+jobs:
+  prebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Flag prebuilds as done
+        run: echo "prebuilds are done"

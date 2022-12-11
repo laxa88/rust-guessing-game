@@ -1,0 +1,13 @@
+name: Prebuild bom
+
+on:
+  push:
+    paths:
+      - src/bom/**
+
+jobs:
+  prebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Flag prebuilds as done
+        run: echo "prebuilds are done"
