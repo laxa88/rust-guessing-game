@@ -8,7 +8,7 @@ on:
       - src/bom/**
 
 jobs:
-  prebuild:
+  prebuild-bom:
     runs-on: ubuntu-latest
     steps:
       - name: Flag prebuilds as done

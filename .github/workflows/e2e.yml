@@ -1,0 +1,23 @@
+name: Run e2e tests
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+      - "**"
+
+concurrency:
+  group: ${{ github.ref }}
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    environment: e2e
+    steps:
+      - name: Flag e2e as done
+        run: echo "e2e is done"
