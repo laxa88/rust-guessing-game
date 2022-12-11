@@ -1,9 +1,10 @@
 name: Prebuild bom
 
 on:
-  push:
-    branches-ignore:
+  pull_request:
+    branches:
       - main
+      - "**"
     paths:
       - src/bom/**
 
