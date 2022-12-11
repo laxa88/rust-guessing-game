@@ -7,12 +7,12 @@ on:
   #     - "**"
   #   paths:
   #     - src/bom/**
-  pull_request_target:
-    paths:
-      - src/bom/**
-  # push:
+  # pull_request_target:
   #   paths:
   #     - src/bom/**
+  push:
+    paths:
+      - src/bom/**
 
 jobs:
   prebuild-bom:

@@ -7,12 +7,12 @@ on:
   #     - "**"
   #   paths:
   #     - src/common/**
-  pull_request_target:
-    paths:
-      - src/common/**
-  # push:
+  # pull_request_target:
   #   paths:
   #     - src/common/**
+  push:
+    paths:
+      - src/common/**
 
 jobs:
   prebuild-common:
