@@ -1,10 +1,7 @@
-name: Run e2e tests
+name: Run e2e
+
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-      - master
   pull_request:
     branches:
       - main
@@ -15,7 +12,7 @@ concurrency:
   group: ${{ github.ref }}
 
 jobs:
-  my-job:
+  e2e:
     runs-on: ubuntu-latest
     environment: e2e
     steps:
