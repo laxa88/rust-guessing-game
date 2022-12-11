@@ -1,12 +1,18 @@
 name: Prebuild common
 
 on:
-  push:
-    branches:
-      - main
-      - "**"
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - "**"
+  #   paths:
+  #     - src/common/**
+  pull_request_target:
     paths:
       - src/common/**
+  # push:
+  #   paths:
+  #     - src/common/**
 
 jobs:
   prebuild-common:

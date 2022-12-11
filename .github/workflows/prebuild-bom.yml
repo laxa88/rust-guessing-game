@@ -1,12 +1,18 @@
 name: Prebuild bom
 
 on:
-  pull_request:
-    branches:
-      - main
-      - "**"
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - "**"
+  #   paths:
+  #     - src/bom/**
+  pull_request_target:
     paths:
       - src/bom/**
+  # push:
+  #   paths:
+  #     - src/bom/**
 
 jobs:
   prebuild-bom:
