@@ -1,18 +1,18 @@
-name: Run e2e tests
+name: Run rust
 on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
-  push:
-    branches:
-      - main
-      - master
-      - "dependabot/**"
-  pull_request:
-    branches:
-      - main
-      - master
-      - "**"
+  # push:
+  #   branches:
+  #     - main
+  #     - master
+  #     - "dependabot/**"
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - master
+  #     - "**"
 
 concurrency:
   group: ${{ github.ref }}
