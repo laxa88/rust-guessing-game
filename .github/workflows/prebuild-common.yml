@@ -8,7 +8,7 @@ on:
       - src/common/**
 
 jobs:
-  prebuild:
+  prebuild-common:
     runs-on: ubuntu-latest
     steps:
       - name: Flag prebuilds as done
